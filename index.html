@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>text</title>
+		<link rel="stylesheet" type="text/css" href="css/app.css"/>
+		<script src="js/app.js"></script>
+	</head>
+	<body>
+		<div id="top">
+			<p id="title">
+				Online web calculator of ensemble machine learning model for predicting EGFR mutation status in lung adenocarcinoma
+			</p>
+		</div>
+		<div id="left">
+			<div id="input1">
+				<label for="Long-axis_diamater">Long-axis diameter (cm, 1-8cm):</label>
+				<input type="number" id="Long-axis_diamater" required>
+			</div>
+			<div id="input">
+				<label for="Texture">Texture (subsolid=0, solid=1):</label>
+				<input type="number" id="Texture" required>
+			</div>
+			<div id="input">
+				<label for="Bubblelike_lucency">Bubblelike lucency (absent=0, present=1):</label>
+				<input type="number" id="Bubblelike_lucency" required>
+			</div>
+			<div id="input">
+				<label for="Air bronchogram">Air bronchogram (absent=0, present=1):</label>
+				<input type="number" id="Air bronchogram" required>
+			</div>
+			<div id="input">
+				<label for="Vascular convergence">Vascular convergence  (absent=0, present=1):</label>
+				<input type="number" id="Vascular convergence" required>
+			</div>
+			<div id="input">
+				<label for="Pleural retraction">Pleural聽retraction (absent=0, present=1):</label>
+				<input type="number" id="Pleural retraction" required>
+			</div>
+			<div id="input">
+				<label for="SEX">Sex (male=1, female=2):</label>
+				<input type="number" id="SEX" required>
+			</div>
+			<div id="input">
+				<label for="Smoke history">Smoking history (never=0, current or former=1):</label>
+				<input type="number" id="Smoke history" required>
+			</div>
+			
+			<button type="button" id="reset" onclick="reset()">reset</button>
+			<button type="button" id="predict" onclick="predict()">predict</button>
+		</div>
+		<div id="right">
+			<div id="image">
+				<p>Feature Importance</p>
+				<img src="img/feature_importance.png"/>
+			</div>
+			<div id="result">
+				<h3>Prediction</h3>
+				<p class="inline-p">The prediction of EGFR-mutant is:</p><p id="prediction" class="inline-p"></p>
+			</div>
+		</div>
+	</body>
+</html>
