@@ -40,7 +40,7 @@ function predict() {
 		input.push(parseFloat(Pleural))
 		input.push(parseFloat(sex))
 		input.push(parseFloat(smoke))
-		fetch('https://a40e-47-122-73-6.ngrok-free.app/predict', {
+		fetch('http://127.0.0.1:5000/predict', {
 			method: 'POST',
 			headers: {
 			    'Content-Type': 'application/json'
@@ -56,6 +56,6 @@ function predict() {
 			console.error('error:', error);
 		});
 	} else {
-		alert("Long-axis diameter input error");
+		alert("Long-axis diameter input must be 1-8cm");
 	}
 }
