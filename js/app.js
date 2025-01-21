@@ -1,28 +1,37 @@
 function reset() {
 			
 	document.getElementById('Long-axis_diamater').value = '';
-	document.getElementById('Texture').value = '';
-	document.getElementById('Bubblelike_lucency').value = '';
-	document.getElementById('Air bronchogram').value = '';
-	document.getElementById('Vascular convergence').value = '';
-	document.getElementById('Pleural retraction').value = '';
-	document.getElementById('SEX').value = '';
-	document.getElementById('Smoke history').value = '';
+	document.querySelector('input[type="radio"][name="Texture"][value="0"]').checked = true;
+	document.querySelector('input[type="radio"][name="Bubblelike_lucency"][value="0"]').checked = true;
+	document.querySelector('input[type="radio"][name="Air_bronchogram"][value="0"]').checked = true;
+	document.querySelector('input[type="radio"][name="Vascular_convergence"][value="0"]').checked = true;
+	document.querySelector('input[type="radio"][name="Pleural_retraction"][value="0"]').checked = true;
+	document.querySelector('input[type="radio"][name="Sex"][value="1"]').checked = true;
+	document.querySelector('input[type="radio"][name="Smoke_history"][value="0"]').checked = true;
 }
 					
 function predict() {
 			
 	let input = [];
 	var Long = document.getElementById('Long-axis_diamater').value
-	var texture = document.getElementById('Texture').value
-	var Bubblelike_lucency = document.getElementById('Bubblelike_lucency').value
-	var air = document.getElementById('Air bronchogram').value
-	var Vascular = document.getElementById('Vascular convergence').value
-	var Pleural = document.getElementById('Pleural retraction').value
-	var sex = document.getElementById('SEX').value
-	var smoke = document.getElementById('Smoke history').value
+	var texture = document.querySelector('input[type="radio"][name="Texture"]:checked').value;
+	var Bubblelike_lucency = document.querySelector('input[type="radio"][name="Bubblelike_lucency"]:checked').value;
+	var air = document.querySelector('input[type="radio"][name="Air_bronchogram"]:checked').value;
+	var Vascular = document.querySelector('input[type="radio"][name="Vascular_convergence"]:checked').value;
+	var Pleural = document.querySelector('input[type="radio"][name="Pleural_retraction"]:checked').value;
+	var sex = document.querySelector('input[type="radio"][name="Sex"]:checked').value;
+	var smoke = document.querySelector('input[type="radio"][name="Smoke_history"]:checked').value;
+	
+	// console.log(Long)
+	// console.log(texture)
+	// console.log(Bubblelike_lucency)
+	// console.log(air)
+	// console.log(Vascular)
+	// console.log(Pleural)
+	// console.log(sex)
+	// console.log(smoke)
 				
-	if (Long.trim() != "" && texture.trim() != "" && Bubblelike_lucency.trim() != "" && air.trim() != "" && Vascular.trim() != "" && Pleural.trim() != "" && sex.trim() != "" && smoke.trim() != "") {
+	if (Long.trim() != "" && parseFloat(Long) >= 1 && parseFloat(Long) <= 8) {
 		input.push(parseFloat(Long))
 		input.push(parseFloat(texture))
 		input.push(parseFloat(Bubblelike_lucency))
@@ -47,6 +56,6 @@ function predict() {
 			console.error('error:', error);
 		});
 	} else {
-		alert("num error");
+		alert("Long-axis diameter input error");
 	}
 }
