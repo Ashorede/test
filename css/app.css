@@ -97,7 +97,8 @@ label {
 	outline: none;
 	transition: transform 0.3s, background-color 0.3s;
 	position: absolute;
-	left: 60%;
+	/* left: 60%; */
+	right: 15%;
 }
 		
 #predict:hover {
