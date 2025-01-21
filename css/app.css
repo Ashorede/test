@@ -144,7 +144,7 @@ label {
 
 #result {
 	position: absolute;
-	top: 75%;
+	bottom: 5%;
 	border: 1px solid #dadada;
 	width: 85%;
 	height: 130px;
